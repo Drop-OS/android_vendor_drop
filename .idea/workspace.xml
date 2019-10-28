@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2603554-c0fc-4c4f-aa40-b7f0e26846fb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/boat.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/boat.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/dragon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/dragon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/gr3to4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/gr3to4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/gr5plus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/gr5plus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/ktogr2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/ktogr2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/music.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/music.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/select.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/select.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/water.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/water.png" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,20 +34,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/MainMenu.java">
+      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+            <state relative-caret-position="1178">
+              <caret line="97" column="56" lean-forward="true" selection-start-line="97" selection-start-column="56" selection-end-line="97" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/Main.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-215">
-              <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+            <state relative-caret-position="120">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
                 <element signature="e#743#744#0" expanded="true" />
                 <element signature="e#803#804#0" expanded="true" />
@@ -44,10 +57,10 @@
         </entry>
       </file>
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/Game.java">
+        <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            <state relative-caret-position="240">
+              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -70,11 +83,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/MainMenu.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="62" />
+    <option name="x" value="249" />
     <option name="y" value="23" />
     <option name="width" value="1188" />
     <option name="height" value="787" />
@@ -103,7 +118,7 @@
               <item name="Game On!" type="b2602c69:ProjectViewProjectNode" />
               <item name="Game On!" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="TreasureIsland" type="462c0819:PsiDirectoryNode" />
+              <item name="GameOn" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -131,12 +146,12 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.adinkwok.TreasureIsland.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.adinkwok.GameOn.Main" />
       <module name="Game On!" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.adinkwok.TreasureIsland.*" />
+          <option name="PATTERN" value="com.adinkwok.GameOn.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -181,7 +196,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="23" width="1188" height="787" extended-state="0" />
+    <frame x="249" y="23" width="1188" height="787" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -192,12 +207,12 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3289855" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.19565217" />
       <window_info anchor="bottom" id="CheckStyle" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2495637" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2495637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Theme Preview" />
@@ -227,28 +242,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        <state relative-caret-position="240">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/MainMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-215">
-          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        <state relative-caret-position="120">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="e#743#744#0" expanded="true" />
             <element signature="e#803#804#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="97" column="56" lean-forward="true" selection-start-line="97" selection-start-column="56" selection-end-line="97" selection-end-column="56" />
         </state>
       </provider>
     </entry>

@@ -1,4 +1,4 @@
-package com.adinkwok.TreasureIsland;
+package com.adinkwok.GameOn;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

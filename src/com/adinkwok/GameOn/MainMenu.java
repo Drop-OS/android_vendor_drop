@@ -1,4 +1,4 @@
-package com.adinkwok.TreasureIsland;
+package com.adinkwok.GameOn;
 
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
@@ -91,18 +91,12 @@ class MainMenu extends JPanel implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-                if (mMenuSelection <= 0) {
-                    mMenuSelection = mMenuItemY.length - 1;
-                } else {
-                    mMenuSelection--;
-                }
+                if (mMenuSelection <= 0) mMenuSelection = mMenuItemY.length - 1;
+                else mMenuSelection--;
                 break;
             case KeyEvent.VK_DOWN:
-                if (mMenuSelection >= mMenuItemY.length - 1) {
-                    mMenuSelection = 0;
-                } else {
-                    mMenuSelection++;
-                }
+                if (mMenuSelection >= mMenuItemY.length - 1) mMenuSelection = 0;
+                else mMenuSelection++;
                 break;
             case KeyEvent.VK_SPACE:
             case KeyEvent.VK_ENTER:
