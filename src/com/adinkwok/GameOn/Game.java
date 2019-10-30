@@ -1,97 +1,91 @@
 package com.adinkwok.GameOn;
 
+import com.adinkwok.GameOn.models.Enemy;
+import com.adinkwok.GameOn.models.Player;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import java.util.Collections;
-import java.util.LinkedList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 class Game extends JPanel implements KeyListener {
-    private static final int SPEED = 5;
+    private static final int SPEED = 20;
 
-    private int mGameMode, mRepeatsRemaining;
-    private JFrame mJFrame;
-    private MainMenu mMainMenu;
+    private int dragonsRemaining;
+    private JFrame jFrame;
+    private MainMenu mainMenu;
 
     private int mScreenHeight;
-    private int[] mLaneX = new int[5];
+    private int[] laneCoordinates = new int[5];
 
-    private int mDragonStart;
-    private int[] mDragonDimens = new int[2], mDragonYs = new int[mLaneX.length];
-    private boolean[] mDragonLaunches = new boolean[mLaneX.length];
-    private LinkedList<Integer> mLaunchedDragons = new LinkedList<>();
+    private Set<Enemy> launchedEnemies = new HashSet<>();
 
-    private int mBoatStart, mBoatX, mBoatY;
-    private int[] mBoatDimens = new int[2];
+    private Player player;
 
-    private BufferedImage mBackgroundImage, mBoatImage, mDragonImage;
-    private ScheduledExecutorService mExecutor = Executors.newSingleThreadScheduledExecutor();
+    private BufferedImage mBackgroundImage, enemyImage;
+    private ScheduledExecutorService launchExecutor = Executors.newSingleThreadScheduledExecutor();
+    private ScheduledExecutorService moveExecutor = Executors.newSingleThreadScheduledExecutor();
 
 
     Game(int gameMode, JFrame jFrame, MainMenu mainMenu) {
-        mGameMode = gameMode;
-        mJFrame = jFrame;
-        mMainMenu = mainMenu;
-        mBoatX = 2;
+        this.jFrame = jFrame;
+        this.mainMenu = mainMenu;
         this.setDoubleBuffered(true);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         try {
+            player = new Player(ImageIO.read(getClass().getResource("flygon.gif")));
+            enemyImage = ImageIO.read(getClass().getResource("dragon.png"));
             mBackgroundImage = ImageIO.read(getClass().getResource("water.png"));
-            mBoatImage = ImageIO.read(getClass().getResource("boat.png"));
-            mDragonImage = ImageIO.read(getClass().getResource("dragon.png"));
-            mBoatDimens[0] = mBoatImage.getWidth();
-            mBoatDimens[1] = mBoatImage.getHeight();
-            mDragonDimens[0] = mDragonImage.getWidth();
-            mDragonDimens[1] = mDragonImage.getHeight();
+            player.setLaneIndex(laneCoordinates.length / 2);
+            dragonsRemaining = 30 + (gameMode + 1) * 5;
+            startGame();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        resetLaunchedDragons();
-        mRepeatsRemaining = (mGameMode + 1) * 5;
+    }
+
+    private void startGame() {
         launchDragons().run();
+        moveLaunchedDragons().run();
     }
 
     private Runnable launchDragons() {
         return new Runnable() {
             @Override
             public void run() {
-                int randomNum = mLaunchedDragons.getFirst();
-                mDragonLaunches[randomNum] = true;
-                mLaunchedDragons.removeFirst();
-                if (mLaunchedDragons.isEmpty()) {
-                    --mRepeatsRemaining;
-                    if (mRepeatsRemaining <= 0) {
-                        endGame();
-                        return;
-                    } else {
-                        resetLaunchedDragons();
-                    }
+                int randomLane = (int) (Math.random() * ((laneCoordinates.length - 1) + 1));
+                launchedEnemies.add(new Enemy(enemyImage, randomLane));
+                dragonsRemaining--;
+                if (dragonsRemaining > 0) {
+                    launchExecutor.schedule(this, 500, TimeUnit.MILLISECONDS);
+                } else {
+                    endGame();
                 }
-                mExecutor.schedule(this, 1500 / (mGameMode + 1), TimeUnit.MILLISECONDS);
             }
         };
     }
 
     void resizeImages(int x, int y) {
         this.mScreenHeight = y;
-        mBoatDimens[0] = x * 100 / 1920;
-        mBoatDimens[1] = y * 250 / 1080;
-        mDragonDimens[0] = x * 400 / 1920;
-        mDragonDimens[1] = y * 216 / 1080;
-        mBoatStart = mBoatDimens[0] / 2;
-        mDragonStart = mDragonDimens[0] / 2;
-        mBoatY = (int) (y / 1.35);
+        player.setImageWidth(x * 100 / 1920);
+        player.setImageHeight(y * 250 / 1080);
+        player.setY((int) (y / 1.35));
+        for (Enemy enemy : launchedEnemies) {
+            enemy.setImageWidth(x * 400 / 1920);
+            enemy.setImageHeight(y * 216 / 1080);
+        }
         final int laneSeparation = x / 6;
-        for (int i = 0; i < mLaneX.length; i++) {
-            mLaneX[i] = (i + 1) * laneSeparation;
+        for (int i = 0; i < laneCoordinates.length; i++) {
+            laneCoordinates[i] = (i + 1) * laneSeparation;
         }
     }
 
@@ -100,36 +94,30 @@ class Game extends JPanel implements KeyListener {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(mBackgroundImage, 0, 0, getWidth(), getHeight(), this);
-        g2d.drawImage(mBoatImage, mLaneX[mBoatX] - mBoatStart, mBoatY,
-                mBoatDimens[0], mBoatDimens[1], this);
-        lowerDragon();
-        for (int i = 0; i < mLaneX.length; i++) {
-            if (mDragonLaunches[i]) {
-                g2d.drawImage(mDragonImage, mLaneX[i] - mDragonStart, mDragonYs[i] - mDragonDimens[1],
-                        mDragonDimens[0], mDragonDimens[1], this);
-            }
+        g2d.drawImage(player.getImage(), laneCoordinates[player.getLaneIndex()] - player.getStart(),
+                player.getY(), player.getImageWidth(), player.getImageHeight(), this);
+        for (Enemy enemy : launchedEnemies) {
+            g2d.drawImage(enemy.getImage(), laneCoordinates[enemy.getLaneIndex()] - enemy.getStart(),
+                    enemy.getY() - enemy.getImageHeight(),
+                    enemy.getImageWidth(), enemy.getImageHeight(), this);
         }
     }
 
-    private void resetLaunchedDragons() {
-        for (int i = 0; i < mLaneX.length; i++) {
-            mLaunchedDragons.add(i);
-        }
-        Collections.shuffle(mLaunchedDragons);
-    }
-
-    private void lowerDragon() {
-        for (int i = 0; i < mLaneX.length; i++) {
-            if (mDragonLaunches[i]) {
-                mDragonYs[i] += (mGameMode + SPEED);
-                if (mBoatX == i && mDragonYs[i] >= mBoatY)
-                    endGame();
-                else if (mDragonYs[i] >= this.mScreenHeight) {
-                    mDragonYs[i] = 0;
-                    mDragonLaunches[i] = false;
+    private Runnable moveLaunchedDragons() {
+        return new Runnable() {
+            @Override
+            public void run() {
+                for (Enemy enemy : launchedEnemies) {
+                    enemy.setY(enemy.getY() + SPEED);
+                    if (player.getLaneIndex() == enemy.getLaneIndex() && enemy.getY() >= player.getY()) {
+                        endGame();
+                    } else if (enemy.getY() >= mScreenHeight) {
+                        launchedEnemies.remove(enemy);
+                    }
                 }
+                moveExecutor.schedule(this, 30, TimeUnit.MILLISECONDS);
             }
-        }
+        };
     }
 
     @Override
@@ -141,13 +129,13 @@ class Game extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_LEFT:
-                if (mBoatX > 0) {
-                    --mBoatX;
+                if (player.getLaneIndex() > 0) {
+                    player.setLaneIndex(player.getLaneIndex() - 1);
                 }
                 break;
             case KeyEvent.VK_RIGHT:
-                if (mBoatX < mLaneX.length - 1) {
-                    ++mBoatX;
+                if (player.getLaneIndex() < laneCoordinates.length - 1) {
+                    player.setLaneIndex(player.getLaneIndex() + 1);
                 }
                 break;
             case KeyEvent.VK_ESCAPE:
@@ -157,11 +145,11 @@ class Game extends JPanel implements KeyListener {
     }
 
     private void endGame() {
-        mExecutor.shutdown();
-        mJFrame.setContentPane(mMainMenu);
-        mJFrame.validate();
-        mMainMenu.requestFocus();
-        mMainMenu.endGame();
+        launchExecutor.shutdown();
+        jFrame.setContentPane(mainMenu);
+        jFrame.validate();
+        mainMenu.requestFocus();
+        mainMenu.endGame();
     }
 
     @Override
