@@ -4,17 +4,14 @@
     <list default="true" id="c2603554-c0fc-4c4f-aa40-b7f0e26846fb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/charizard.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/dragon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/flygon.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/gr3to4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/gr5plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/ktogr2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/music.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/music.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/select.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/water.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/images/charizard.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/images/dragon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/images/flygon.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/images/water.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Player.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +30,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1366#1367#0" expanded="true" />
+                <element signature="e#1419#1420#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="126" column="5" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
+            <state relative-caret-position="367">
+              <caret line="118" selection-start-line="118" selection-end-line="118" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2475#2476#0" expanded="true" />
@@ -53,54 +64,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Class.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/lang/Class.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="2207" column="12" selection-start-line="2207" selection-start-column="12" selection-end-line="2207" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="181">
+              <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
               <folding>
-                <element signature="e#1867#1868#0" expanded="true" />
-                <element signature="e#1904#1905#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Enemy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/models/BaseModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-              <folding>
-                <element signature="e#375#376#0" expanded="true" />
-                <element signature="e#412#413#0" expanded="true" />
+                <element signature="e#1685#1908#0" expanded="true" />
+                <element signature="e#1907#1908#0" expanded="true" />
+                <element signature="e#5306#5668#0" expanded="true" />
+                <element signature="e#5667#5668#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,17 +82,8 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Image.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/awt/Image.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="86" column="24" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
+            <state relative-caret-position="105">
+              <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -146,6 +110,11 @@
       <find>get(</find>
       <find>getC</find>
       <find>getClass().getResource(&quot;</find>
+      <find>speed</find>
+      <find>3</find>
+      <find>setDoubleBuffered</find>
+      <find>paintC</find>
+      <find>isEnding</find>
     </findStrings>
     <replaceStrings>
       <replace>mFlygon</replace>
@@ -160,19 +129,20 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/adinkwok/TreasureIsland/Main.java" />
         <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/models/GameModel.java" />
-        <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/models/BaseModel.java" />
-        <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java" />
         <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Enemy.java" />
+        <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/models/BaseModel.java" />
+        <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/OurFrame.java" />
         <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Player.java" />
-        <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/Game.java" />
         <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/MainMenu.java" />
+        <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/adinkwok/GameOn/Game.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="33" />
+    <option name="x" value="178" />
     <option name="y" value="23" />
-    <option name="width" value="1407" />
+    <option name="width" value="1262" />
     <option name="height" value="852" />
   </component>
   <component name="ProjectView">
@@ -293,14 +263,14 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32980132" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.09933775" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45562914" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21324503" />
       <window_info anchor="bottom" id="CheckStyle" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.20794702" />
       <window_info id="Capture Tool" order="2" />
@@ -357,6 +327,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="14" column="48" lean-forward="true" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1366#1367#0" expanded="true" />
+            <element signature="e#1419#1420#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -397,8 +372,10 @@
         <state relative-caret-position="2040">
           <caret line="152" column="44" lean-forward="true" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
           <folding>
-            <element signature="e#1867#1868#0" expanded="true" />
-            <element signature="e#1904#1905#0" expanded="true" />
+            <element signature="e#1685#1908#0" expanded="true" />
+            <element signature="e#1907#1908#0" expanded="true" />
+            <element signature="e#5306#5668#0" expanded="true" />
+            <element signature="e#5667#5668#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -433,8 +410,10 @@
         <state relative-caret-position="240">
           <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
           <folding>
-            <element signature="e#1867#1868#0" expanded="true" />
-            <element signature="e#1904#1905#0" expanded="true" />
+            <element signature="e#1685#1908#0" expanded="true" />
+            <element signature="e#1907#1908#0" expanded="true" />
+            <element signature="e#5306#5668#0" expanded="true" />
+            <element signature="e#5667#5668#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -487,31 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/models/BaseModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding>
-            <element signature="e#375#376#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/awt/Graphics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -526,28 +480,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/models/BaseModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
           <folding>
-            <element signature="e#1867#1868#0" expanded="true" />
-            <element signature="e#1904#1905#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/OurFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+        <state relative-caret-position="105">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/javax/swing/JFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2430">
+          <caret line="200" column="68" lean-forward="true" selection-start-line="200" selection-start-column="68" selection-end-line="200" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="3309" column="16" selection-start-line="3309" selection-start-column="16" selection-end-line="3309" selection-end-column="16" />
+          <folding>
+            <element signature="e#114480#114481#0" expanded="true" />
+            <element signature="e#114527#114528#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/models/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="5323" column="16" selection-start-line="5323" selection-start-column="16" selection-end-line="5323" selection-end-column="16" />
+          <folding>
+            <element signature="e#201467#201468#0" expanded="true" />
+            <element signature="e#201516#201517#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/awt/event/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/javax/swing/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-248">
+          <caret line="54" column="33" lean-forward="true" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="126" column="5" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
+        <state relative-caret-position="367">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2475#2476#0" expanded="true" />
@@ -558,6 +572,38 @@
             <element signature="e#4617#4618#0" expanded="true" />
             <element signature="e#4663#4664#0" expanded="true" />
             <element signature="e#4705#4706#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1366#1367#0" expanded="true" />
+            <element signature="e#1419#1420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="300" column="30" selection-start-line="300" selection-start-column="30" selection-end-line="300" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/adinkwok/GameOn/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+          <folding>
+            <element signature="e#1685#1908#0" expanded="true" />
+            <element signature="e#1907#1908#0" expanded="true" />
+            <element signature="e#5306#5668#0" expanded="true" />
+            <element signature="e#5667#5668#0" expanded="true" />
           </folding>
         </state>
       </provider>

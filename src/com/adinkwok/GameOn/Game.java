@@ -15,44 +15,55 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 class Game extends JPanel implements KeyListener {
-    private static final int SPEED = 5;
-
-    private int dragonsRemaining;
     private JFrame jFrame;
     private MainMenu mainMenu;
 
     private int x, y;
-    private int[] laneCoordinates = new int[3];
+    private int[] laneCoordinates;
 
     private Set<Enemy> launchedEnemies = new HashSet<>();
-
     private Player player;
-
     private ScheduledExecutorService launchExecutor = Executors.newSingleThreadScheduledExecutor();
 
-    private boolean isEnding = false;
-
+    private boolean isGameStarted = false;
     private int gameMode;
+    private double speed = 10.0;
+
+    private int frameCount = 0;
 
     Game(int gameMode, JFrame jFrame, MainMenu mainMenu) {
         this.jFrame = jFrame;
         this.mainMenu = mainMenu;
         this.gameMode = gameMode;
-        this.setDoubleBuffered(true);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-        try {
-            player = new Player(mainMenu.getPlayerImage());
-            player.laneIndex = laneCoordinates.length / 2;
-            dragonsRemaining = 30 + (gameMode + 1) * 5;
-            startGame();
-        } catch (Exception e) {
-            e.printStackTrace();
+        switch (gameMode) {
+            case 0:
+                laneCoordinates = new int[3];
+                break;
+            case 1:
+                laneCoordinates = new int[4];
+            case 2:
+                laneCoordinates = new int[4];
+                break;
         }
+        player = new Player(mainMenu.getPlayerImage());
+        player.laneIndex = laneCoordinates.length / 2;
+        startGame();
     }
 
     private void startGame() {
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        isGameStarted = true;
+                        launchDragons().run();
+                    }
+                },
+                1000
+        );
         launchDragons().run();
     }
 
@@ -62,12 +73,9 @@ class Game extends JPanel implements KeyListener {
             public void run() {
                 int randomLane = new Random().nextInt(laneCoordinates.length);
                 launchedEnemies.add(new Enemy(mainMenu.getEnemyImage(), x, y, randomLane));
-                dragonsRemaining--;
-                if (dragonsRemaining > 0) {
-                    launchExecutor.schedule(this, 750 - ((gameMode + 1) / 3 * 200), TimeUnit.MILLISECONDS);
-                } else {
-                    endGame();
-                }
+                if (isGameStarted)
+                    launchExecutor.schedule(this,
+                            1250 - (int) (10 * speed * (gameMode + 1)), TimeUnit.MILLISECONDS);
             }
         };
     }
@@ -79,18 +87,19 @@ class Game extends JPanel implements KeyListener {
         player.imageHeight = y * 250 / 1080;
         player.yPosition = (int) (y / 1.35);
         for (Enemy enemy : launchedEnemies) {
-            enemy.imageWidth = x * 300 / 1920;
-            enemy.imageHeight = y * 200 / 1080;
+            enemy.imageWidth = x * 525 / 1920;
+            enemy.imageHeight = y * 350 / 1080;
         }
-        final int laneSeparation = x / 4;
+        int laneSeparation = x / (laneCoordinates.length + 1);
         for (int i = 0; i < laneCoordinates.length; i++) {
             laneCoordinates[i] = (i + 1) * laneSeparation;
         }
     }
 
+    private Font font = new Font("Nexa Bold", Font.BOLD, 40);
+
     @Override
     protected void paintComponent(Graphics g) {
-        moveLaunchedDragons();
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(mainMenu.getGameBackgroundImage(), 0, 0, getWidth(), getHeight(), this);
@@ -102,12 +111,15 @@ class Game extends JPanel implements KeyListener {
                         enemy.yPosition - enemy.imageHeight,
                         enemy.imageWidth, enemy.imageHeight, this);
         }
+        g2d.setFont(font);
+        g2d.drawString("Score: " + frameCount, 25, 50);
     }
 
     private void moveLaunchedDragons() {
+        speed += 0.01;
         for (Enemy enemy : launchedEnemies) {
             if (enemy.isActive) {
-                enemy.yPosition += SPEED;
+                enemy.yPosition += y * speed / 1080;
                 if (player.laneIndex == enemy.laneIndex && enemy.yPosition >= player.yPosition) {
                     endGame();
                 } else if (enemy.yPosition >= y) {
@@ -126,14 +138,16 @@ class Game extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_LEFT:
-                if (player.laneIndex > 0) {
-                    player.laneIndex--;
-                }
+                if (isGameStarted)
+                    if (player.laneIndex > 0) {
+                        player.laneIndex--;
+                    }
                 break;
             case KeyEvent.VK_RIGHT:
-                if (player.laneIndex < laneCoordinates.length - 1) {
-                    player.laneIndex++;
-                }
+                if (isGameStarted)
+                    if (player.laneIndex < laneCoordinates.length - 1) {
+                        player.laneIndex++;
+                    }
                 break;
             case KeyEvent.VK_ESCAPE:
                 endGame();
@@ -142,19 +156,34 @@ class Game extends JPanel implements KeyListener {
     }
 
     private void endGame() {
-        if (!isEnding) {
-            isEnding = true;
+        if (isGameStarted) {
+            isGameStarted = false;
             launchExecutor.shutdown();
-            jFrame.setContentPane(mainMenu);
-            jFrame.validate();
-            mainMenu.requestFocus();
-            mainMenu.endGame();
-
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            jFrame.setContentPane(mainMenu);
+                            jFrame.validate();
+                            mainMenu.requestFocus();
+                            mainMenu.endGame();
+                        }
+                    },
+                    3000
+            );
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    void updateFrame() {
+        if (isGameStarted) {
+            moveLaunchedDragons();
+            frameCount++;
+        }
+        repaint();
     }
 }

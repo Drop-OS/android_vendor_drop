@@ -1,19 +1,13 @@
 package com.adinkwok.GameOn;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import java.io.InputStream;
 
-class MainMenu extends JPanel implements ActionListener, KeyListener {
+class MainMenu extends JPanel implements KeyListener {
     private int mMenuSelection, mMenuItemX;
     private int[] mMenuItemY = {400, 500, 600};
     private int[] mImageDimen = new int[2];
@@ -24,14 +18,14 @@ class MainMenu extends JPanel implements ActionListener, KeyListener {
 
     private BufferedImage mBackgroundImage, mKtoGr2Image, mGr3to4Image, mGr5plusImage, mSelectImage;
 
-    private BufferedImage playerImage, enemyImage, gameBackgroundImage;
+    private BufferedImage enemyImage;
+    private BufferedImage gameBackgroundImage;
+
+    private ImageIcon playerImage;
 
     MainMenu(JFrame jFrame) {
         mJFrame = jFrame;
         mGame = null;
-        this.setDoubleBuffered(true);
-        Timer mTimer = new Timer(5, this);
-        mTimer.start();
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -41,17 +35,11 @@ class MainMenu extends JPanel implements ActionListener, KeyListener {
             mGr3to4Image = ImageIO.read(getClass().getResource("images/gr3to4.png"));
             mGr5plusImage = ImageIO.read(getClass().getResource("images/gr5plus.png"));
             mSelectImage = ImageIO.read(getClass().getResource("images/select.png"));
-            playerImage = ImageIO.read(getClass().getResource("images/flygon.gif"));
-            enemyImage = ImageIO.read(getClass().getResource("images/charizard.gif"));
-            gameBackgroundImage = ImageIO.read(getClass().getResource("images/water.png"));
+            enemyImage = ImageIO.read(getClass().getResource("images/charizard.png"));
+            gameBackgroundImage = ImageIO.read(getClass().getResource("images/gamebackground.jpg"));
             mImageDimen[0] = getWidth();
             mImageDimen[1] = getHeight();
-            InputStream input = getClass().getResourceAsStream("music.wav");
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(input);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
-            clip.start();
+            playerImage = new ImageIcon(getClass().getResource("images/player.gif"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -85,14 +73,6 @@ class MainMenu extends JPanel implements ActionListener, KeyListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        repaint();
-        if (mGame != null) {
-            mGame.repaint();
-        }
-    }
-
-    @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
@@ -114,7 +94,7 @@ class MainMenu extends JPanel implements ActionListener, KeyListener {
         }
     }
 
-    BufferedImage getPlayerImage() {
+    ImageIcon getPlayerImage() {
         return playerImage;
     }
 
@@ -132,5 +112,13 @@ class MainMenu extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
+    }
+
+    void updateFrame() {
+        if (mGame != null) {
+            mGame.updateFrame();
+        } else {
+            repaint();
+        }
     }
 }
