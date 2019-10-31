@@ -24,7 +24,7 @@ class Game extends JPanel implements KeyListener {
     private MainMenu mainMenu;
 
     private int x, y;
-    private int[] laneCoordinates = new int[5];
+    private int[] laneCoordinates = new int[3];
 
     private Set<Enemy> launchedEnemies = new HashSet<>();
 
@@ -32,13 +32,15 @@ class Game extends JPanel implements KeyListener {
 
     private BufferedImage mBackgroundImage, enemyImage;
     private ScheduledExecutorService launchExecutor = Executors.newSingleThreadScheduledExecutor();
-    private ScheduledExecutorService moveExecutor = Executors.newSingleThreadScheduledExecutor();
 
     private boolean isEnding = false;
+
+    private int gameMode;
 
     Game(int gameMode, JFrame jFrame, MainMenu mainMenu) {
         this.jFrame = jFrame;
         this.mainMenu = mainMenu;
+        this.gameMode = gameMode;
         this.setDoubleBuffered(true);
         addKeyListener(this);
         setFocusable(true);
@@ -63,11 +65,11 @@ class Game extends JPanel implements KeyListener {
         return new Runnable() {
             @Override
             public void run() {
-                int randomLane = new Random().nextInt(laneCoordinates.length - 1);
+                int randomLane = new Random().nextInt(laneCoordinates.length);
                 launchedEnemies.add(new Enemy(enemyImage, x, y, randomLane));
                 dragonsRemaining--;
                 if (dragonsRemaining > 0) {
-                    launchExecutor.schedule(this, 500, TimeUnit.MILLISECONDS);
+                    launchExecutor.schedule(this, 750 - ((gameMode + 1) / 3 * 200), TimeUnit.MILLISECONDS);
                 } else {
                     endGame();
                 }
@@ -78,14 +80,14 @@ class Game extends JPanel implements KeyListener {
     void resizeImages(int x, int y) {
         this.x = x;
         this.y = y;
-        player.imageWidth = x * 100 / 1920;
+        player.imageWidth = x * 145 / 1920;
         player.imageHeight = y * 250 / 1080;
         player.yPosition = (int) (y / 1.35);
         for (Enemy enemy : launchedEnemies) {
             enemy.imageWidth = x * 400 / 1920;
             enemy.imageHeight = y * 216 / 1080;
         }
-        final int laneSeparation = x / 6;
+        final int laneSeparation = x / 4;
         for (int i = 0; i < laneCoordinates.length; i++) {
             laneCoordinates[i] = (i + 1) * laneSeparation;
         }

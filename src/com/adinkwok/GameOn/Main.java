@@ -9,7 +9,7 @@ public class Main extends JFrame implements ComponentListener {
     private MainMenu mMainMenu = new MainMenu(this);
 
     private Main() {
-        this.setTitle("FunFest: Treasure Island");
+        this.setTitle("Funfest: Game On!");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //this.setUndecorated(true);
         //this.setExtendedState(MAXIMIZED_BOTH);

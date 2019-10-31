@@ -1,15 +1,15 @@
 package com.adinkwok.GameOn.models;
 
-import java.awt.image.BufferedImage;
+import java.awt.*;
 
 public abstract class BaseModel {
-    BaseModel(BufferedImage image) {
+    BaseModel(Image image) {
         this.image = image;
     }
 
-    private BufferedImage image;
+    private Image image;
 
-    public BufferedImage getImage() {
+    public Image getImage() {
         return image;
     }
 
