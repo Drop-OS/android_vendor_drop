@@ -24,6 +24,8 @@ class MainMenu extends JPanel implements ActionListener, KeyListener {
 
     private BufferedImage mBackgroundImage, mKtoGr2Image, mGr3to4Image, mGr5plusImage, mSelectImage;
 
+    private BufferedImage playerImage, enemyImage, gameBackgroundImage;
+
     MainMenu(JFrame jFrame) {
         mJFrame = jFrame;
         mGame = null;
@@ -34,11 +36,14 @@ class MainMenu extends JPanel implements ActionListener, KeyListener {
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         try {
-            mBackgroundImage = ImageIO.read(getClass().getResource("background.png"));
-            mKtoGr2Image = ImageIO.read(getClass().getResource("ktogr2.png"));
-            mGr3to4Image = ImageIO.read(getClass().getResource("gr3to4.png"));
-            mGr5plusImage = ImageIO.read(getClass().getResource("gr5plus.png"));
-            mSelectImage = ImageIO.read(getClass().getResource("select.png"));
+            mBackgroundImage = ImageIO.read(getClass().getResource("images/background.png"));
+            mKtoGr2Image = ImageIO.read(getClass().getResource("images/ktogr2.png"));
+            mGr3to4Image = ImageIO.read(getClass().getResource("images/gr3to4.png"));
+            mGr5plusImage = ImageIO.read(getClass().getResource("images/gr5plus.png"));
+            mSelectImage = ImageIO.read(getClass().getResource("images/select.png"));
+            playerImage = ImageIO.read(getClass().getResource("images/flygon.gif"));
+            enemyImage = ImageIO.read(getClass().getResource("images/charizard.gif"));
+            gameBackgroundImage = ImageIO.read(getClass().getResource("images/water.png"));
             mImageDimen[0] = getWidth();
             mImageDimen[1] = getHeight();
             InputStream input = getClass().getResourceAsStream("music.wav");
@@ -107,6 +112,18 @@ class MainMenu extends JPanel implements ActionListener, KeyListener {
                 mGame.requestFocus();
                 break;
         }
+    }
+
+    BufferedImage getPlayerImage() {
+        return playerImage;
+    }
+
+    BufferedImage getEnemyImage() {
+        return enemyImage;
+    }
+
+    BufferedImage getGameBackgroundImage() {
+        return gameBackgroundImage;
     }
 
     @Override

@@ -3,12 +3,10 @@ package com.adinkwok.GameOn;
 import com.adinkwok.GameOn.models.Enemy;
 import com.adinkwok.GameOn.models.Player;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -30,7 +28,6 @@ class Game extends JPanel implements KeyListener {
 
     private Player player;
 
-    private BufferedImage mBackgroundImage, enemyImage;
     private ScheduledExecutorService launchExecutor = Executors.newSingleThreadScheduledExecutor();
 
     private boolean isEnding = false;
@@ -46,9 +43,7 @@ class Game extends JPanel implements KeyListener {
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         try {
-            player = new Player(ImageIO.read(getClass().getResource("flygon.gif")));
-            enemyImage = ImageIO.read(getClass().getResource("dragon.png"));
-            mBackgroundImage = ImageIO.read(getClass().getResource("water.png"));
+            player = new Player(mainMenu.getPlayerImage());
             player.laneIndex = laneCoordinates.length / 2;
             dragonsRemaining = 30 + (gameMode + 1) * 5;
             startGame();
@@ -66,7 +61,7 @@ class Game extends JPanel implements KeyListener {
             @Override
             public void run() {
                 int randomLane = new Random().nextInt(laneCoordinates.length);
-                launchedEnemies.add(new Enemy(enemyImage, x, y, randomLane));
+                launchedEnemies.add(new Enemy(mainMenu.getEnemyImage(), x, y, randomLane));
                 dragonsRemaining--;
                 if (dragonsRemaining > 0) {
                     launchExecutor.schedule(this, 750 - ((gameMode + 1) / 3 * 200), TimeUnit.MILLISECONDS);
@@ -84,8 +79,8 @@ class Game extends JPanel implements KeyListener {
         player.imageHeight = y * 250 / 1080;
         player.yPosition = (int) (y / 1.35);
         for (Enemy enemy : launchedEnemies) {
-            enemy.imageWidth = x * 400 / 1920;
-            enemy.imageHeight = y * 216 / 1080;
+            enemy.imageWidth = x * 300 / 1920;
+            enemy.imageHeight = y * 200 / 1080;
         }
         final int laneSeparation = x / 4;
         for (int i = 0; i < laneCoordinates.length; i++) {
@@ -98,7 +93,7 @@ class Game extends JPanel implements KeyListener {
         moveLaunchedDragons();
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(mBackgroundImage, 0, 0, getWidth(), getHeight(), this);
+        g2d.drawImage(mainMenu.getGameBackgroundImage(), 0, 0, getWidth(), getHeight(), this);
         g2d.drawImage(player.getImage(), laneCoordinates[player.laneIndex] - player.getStart(),
                 player.yPosition, player.imageWidth, player.imageHeight, this);
         for (Enemy enemy : launchedEnemies) {
