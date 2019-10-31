@@ -100,7 +100,6 @@ class MainMenu extends JPanel implements ActionListener, KeyListener {
                 break;
             case KeyEvent.VK_SPACE:
             case KeyEvent.VK_ENTER:
-                mGame = null;
                 mGame = new Game(mMenuSelection, mJFrame, this);
                 mJFrame.setContentPane(mGame);
                 mJFrame.validate();
