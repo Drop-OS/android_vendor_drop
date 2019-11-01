@@ -30,16 +30,16 @@ class MainMenu extends JPanel implements KeyListener {
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         try {
-            mBackgroundImage = ImageIO.read(getClass().getResource("images/background.png"));
-            mKtoGr2Image = ImageIO.read(getClass().getResource("images/ktogr2.png"));
-            mGr3to4Image = ImageIO.read(getClass().getResource("images/gr3to4.png"));
-            mGr5plusImage = ImageIO.read(getClass().getResource("images/gr5plus.png"));
-            mSelectImage = ImageIO.read(getClass().getResource("images/select.png"));
-            enemyImage = ImageIO.read(getClass().getResource("images/charizard.png"));
-            gameBackgroundImage = ImageIO.read(getClass().getResource("images/gamebackground.jpg"));
+            mBackgroundImage = ImageIO.read(this.getClass().getResource("background.png"));
+            mKtoGr2Image = ImageIO.read(this.getClass().getResource("ktogr2.png"));
+            mGr3to4Image = ImageIO.read(getClass().getResource("gr3to4.png"));
+            mGr5plusImage = ImageIO.read(getClass().getResource("gr5plus.png"));
+            mSelectImage = ImageIO.read(getClass().getResource("select.png"));
+            enemyImage = ImageIO.read(getClass().getResource("charizard.png"));
+            gameBackgroundImage = ImageIO.read(getClass().getResource("gamebackground.jpg"));
             mImageDimen[0] = getWidth();
             mImageDimen[1] = getHeight();
-            playerImage = new ImageIcon(getClass().getResource("images/player.gif"));
+            playerImage = new ImageIcon(getClass().getResource("player.gif"));
         } catch (Exception e) {
             e.printStackTrace();
         }

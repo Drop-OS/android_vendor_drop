@@ -20,15 +20,14 @@ public class Main extends JFrame implements ComponentListener, ActionListener {
         timer.start();
         this.setTitle("Funfest: Game On!");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //this.setUndecorated(true);
-        //this.setExtendedState(MAXIMIZED_BOTH);
-        this.setSize(1920, 1080);
+        this.setSize(1920,
+                    1080);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setContentPane(mMainMenu);
         this.addComponentListener(this);
         try {
-            InputStream input = getClass().getResourceAsStream("music.wav");
+            InputStream input = Main.class.getResourceAsStream("music.wav");
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(input);
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);

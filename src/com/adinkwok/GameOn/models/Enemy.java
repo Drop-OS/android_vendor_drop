@@ -9,6 +9,4 @@ public class Enemy extends BaseModel {
         this.imageHeight = y * 350 / 1080;
         this.laneIndex = laneIndex;
     }
-
-    public boolean isActive = true;
 }

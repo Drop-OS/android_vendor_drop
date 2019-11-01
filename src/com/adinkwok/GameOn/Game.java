@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.Executors;
@@ -43,7 +44,6 @@ class Game extends JPanel implements KeyListener {
                 laneCoordinates = new int[3];
                 break;
             case 1:
-                laneCoordinates = new int[4];
             case 2:
                 laneCoordinates = new int[4];
                 break;
@@ -96,35 +96,33 @@ class Game extends JPanel implements KeyListener {
         }
     }
 
-    private Font font = new Font("Nexa Bold", Font.BOLD, 40);
+    private Font font = new Font("Arial", Font.BOLD, 40);
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(mainMenu.getGameBackgroundImage(), 0, 0, getWidth(), getHeight(), this);
+        for (Enemy enemy : launchedEnemies) {
+            g2d.drawImage(enemy.getImage(), laneCoordinates[enemy.laneIndex] - enemy.getStart(),
+                    enemy.yPosition - enemy.imageHeight,
+                    enemy.imageWidth, enemy.imageHeight, this);
+        }
         g2d.drawImage(player.getImage(), laneCoordinates[player.laneIndex] - player.getStart(),
                 player.yPosition, player.imageWidth, player.imageHeight, this);
-        for (Enemy enemy : launchedEnemies) {
-            if (enemy.isActive)
-                g2d.drawImage(enemy.getImage(), laneCoordinates[enemy.laneIndex] - enemy.getStart(),
-                        enemy.yPosition - enemy.imageHeight,
-                        enemy.imageWidth, enemy.imageHeight, this);
-        }
         g2d.setFont(font);
         g2d.drawString("Score: " + frameCount, 25, 50);
     }
 
     private void moveLaunchedDragons() {
         speed += 0.01;
-        for (Enemy enemy : launchedEnemies) {
-            if (enemy.isActive) {
-                enemy.yPosition += y * speed / 1080;
-                if (player.laneIndex == enemy.laneIndex && enemy.yPosition >= player.yPosition) {
-                    endGame();
-                } else if (enemy.yPosition >= y) {
-                    enemy.isActive = false;
-                }
+        for (final Iterator<Enemy> itr = launchedEnemies.iterator(); itr.hasNext(); ) {
+            final Enemy enemy = itr.next();
+            enemy.yPosition += y * speed / 1080;
+            if (player.laneIndex == enemy.laneIndex && enemy.yPosition >= player.yPosition) {
+                endGame();
+            } else if (enemy.yPosition >= y) {
+                itr.remove();
             }
         }
     }
@@ -181,8 +179,8 @@ class Game extends JPanel implements KeyListener {
 
     void updateFrame() {
         if (isGameStarted) {
-            moveLaunchedDragons();
             frameCount++;
+            moveLaunchedDragons();
         }
         repaint();
     }
